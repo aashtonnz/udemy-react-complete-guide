@@ -5,10 +5,11 @@ import Person from './Person/Person';
 class App extends Component {
 	state = {
 		persons: [
-			{	name: "Greg", age: 32 },
-			{	name: "Wanda", age: 7 },
-			{	name: "Tim", age: 83 },
-		]
+			{	name: 'Greg', age: 32 },
+			{	name: 'Wanda', age: 7 },
+			{	name: 'Tim', age: 83 },
+		],
+		otherState: 'someOtherValue'
 	};
 
 	switchNameHandler = () => {
@@ -17,9 +18,9 @@ class App extends Component {
 		// this.state.persons[0].name = "Wanda";
 		this.setState({
 			persons: [
-				{	name: "Matt", age: 32 },
-				{	name: "Wanda", age: 7 },
-				{	name: "Tim", age: 84 },
+				{	name: 'Matt', age: 32 },
+				{	name: 'Wanda', age: 7 },
+				{	name: 'Tim', age: 84 },
 			]
 		});
 	}

@@ -23,7 +23,7 @@ class App extends Component {
 				{	name: 'Tim', age: 84 },
 			]
 		});
-	}
+	};
 
   render() {
     return (

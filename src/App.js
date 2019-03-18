@@ -25,6 +25,16 @@ class App extends Component {
 		});
 	};
 
+	nameChangedHandler = (event) => {
+		this.setState({
+			persons: [
+				{ name: 'Greg', age: 32 },
+				{ name: event.target.value, age: 7 },
+				{ name: 'Tim', age: 83 }
+			]
+		});
+	}
+
 	togglePersonsHandler = (event) => {
 		const doesShowPersons = this.state.showPersons;
 		this.setState({ showPersons: !doesShowPersons });

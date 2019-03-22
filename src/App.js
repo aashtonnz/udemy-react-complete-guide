@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Radium from 'radium';
+import Radium, { StyleRoot } from 'radium';
 import './App.css';
 import Person from './Person/Person';
 
@@ -15,8 +15,6 @@ class App extends Component {
 	};
 
 	switchNameHandler = (newName) => {
-		// DON'T DO THIS:
-		// this.state.persons[0].name = "Wanda";
 		this.setState({
 			persons: [
 				{ name: newName, age: 32 },
@@ -41,8 +39,6 @@ class App extends Component {
 	};
 
 	deletePersonHandler = (index) => {
-		// DON'T DO THIS (persons is a reference and it will change the state)
-		// const persons = this.state.persons;
 		const persons = [...this.state.persons];
 		persons.splice(index, 1);
 		this.setState({ persons });
@@ -93,20 +89,18 @@ class App extends Component {
 		}
 
 		return (
-			<div className="App">
-				<h1>Hi, I'm a React app</h1>
-				<p className={classes.join(' ')}>This is really working!</p>
-				{/* <button onClick={this.switchNameHandler.bind(this, 'GREG')}>Switch Names</button> */}
-				{/* Can use the following but may be inefficient */}
-				<button
-					style={style}
-					onClick={this.togglePersonsHandler}>
-					Toggle Persons
-				</button>
-				{persons}
-			</div>
-			// Above JSX is compliled to:
-			// return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
+			<StyleRoot>
+				<div className="App">
+					<h1>Hi, I'm a React app</h1>
+					<p className={classes.join(' ')}>This is really working!</p>
+					<button
+						style={style}
+						onClick={this.togglePersonsHandler}>
+						Toggle Persons
+					</button>
+					{persons}
+				</div>
+			</StyleRoot>
 		);
 	}
 }

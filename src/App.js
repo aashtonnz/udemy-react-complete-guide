@@ -5,9 +5,9 @@ import Person from './Person/Person';
 class App extends Component {
 	state = {
 		persons: [
-			{ name: 'Greg', age: 32 },
-			{ name: 'Wanda', age: 7 },
-			{ name: 'Tim', age: 83 },
+			{ id: 'jahdsg', name: 'Greg', age: 32 },
+			{ id: 'dfdsfs', name: 'Wanda', age: 7 },
+			{ id: 'nmbnmc', name: 'Tim', age: 83 },
 		],
 		otherState: 'someOtherValue',
 		showPersons: false,
@@ -41,7 +41,9 @@ class App extends Component {
 	};
 
 	deletePersonHandler = (index) => {
-		const persons = this.state.persons;
+		// DON'T DO THIS (persons is a reference and it will change the state)
+		// const persons = this.state.persons;
+		const persons = [...this.state.persons];
 		persons.splice(index, 1);
 		this.setState({ persons });
 	}
@@ -64,7 +66,8 @@ class App extends Component {
 							return <Person
 								name={person.name}
 								age={person.age}
-								click={() => this.deletePersonHandler(index)} />;
+								click={() => this.deletePersonHandler(index)}
+								key={person.id} />;
 						})
 					}
 				</div>

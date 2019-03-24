@@ -6,9 +6,13 @@ const cockpit = (props) => {
     console.log('[Cockpit.js] useEffect');
     // Http request...
     setTimeout(() => alert('Data loaded from cloud!'), 1000);
-  }, [])
+    return () => console.log('[Cockpit.js] Cleanup work in useEffect');
+  }, []);
 
-  // useEffect
+  useEffect(() => {
+    console.log('[Cockpit.js] 2nd useEffect');
+    return () => console.log('[Cockpit.js] Cleanup work in 2nd useEffect');
+  });
 
   const assignedClasses = [];
   let btnClass = '';

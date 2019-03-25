@@ -8,14 +8,14 @@ class Persons extends Component {
   //   return state;
   // }
 
-	// Legacy:
+  // Legacy:
   // componentWillReceiveProps(props) {
   //   console.log('[Persons.js] componentWillRecieveProps');
   // }
 
   shouldComponentUpdate(nextProps, nextState) {
     console.log('[Persons.js] shouldComponentUpdate');
-    return true;
+    return nextProps.persons !== this.props.persons;
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
@@ -23,7 +23,7 @@ class Persons extends Component {
     return { message: 'Shapshot!' };
   }
 
-	// Legacy:
+  // Legacy:
   // componentWillUpdate(props) {
   //   console.log('[Persons.js] componentWillUpdate');
   // }

@@ -21,6 +21,7 @@ class App extends Component {
 		showPersons: false,
 		showCockpit: true,
 		changeCounter: 0,
+		authenticated: false,
 	};
 
 	static getDerivedStateFromProps(props, state) {
